@@ -7,15 +7,14 @@ learn:
 	cd learn/glade-py/src && python3 glade.py ints
 	cd learn/glade-py/src && python3 glade.py decimals
 	cd learn/glade-py/src && python3 glade.py floats
-	cd learn/glade-py/src && python3 glade.py paren0
-	cd learn/glade-py/src && python3 glade.py paren1
-	cd learn/glade-py/src && python3 glade.py paren2
-	cd learn/glade-py/src && python3 glade.py paren3
-	cd learn/glade-py/src && python3 glade.py paren4
-	cd learn/glade-py/src && python3 glade.py paren5
-	cd learn/glade-py/src && python3 glade.py paren1a
-	cd learn/glade-py/src && python3 glade.py paren2a
-	cd learn/glade-py/src && python3 glade.py paren3a
+	cd learn/glade-py/src && python3 glade.py bin_any_paren
+	cd learn/glade-py/src && python3 glade.py bin_paren
+	cd learn/glade-py/src && python3 glade.py bool_add
+	cd learn/glade-py/src && python3 glade.py palindromes
+	cd learn/glade-py/src && python3 glade.py paren
+	cd learn/glade-py/src && python3 glade.py two_any_paren_d
+	cd learn/glade-py/src && python3 glade.py two_paren
+	cd learn/glade-py/src && python3 glade.py two_paren_d
 	cd learn/glade-py/src && python3 glade.py lua
 	cd learn/glade-py/src && python3 glade.py pascal
 	cd learn/glade-py/src && python3 glade.py mysql
@@ -37,15 +36,14 @@ eval:
 	cd learn/results && make eval SUBJECT=decimals
 	cd learn/results && make eval SUBJECT=floats
 	cd learn/results && make eval SUBJECT=json
-	cd learn/results && make eval SUBJECT=paren0
-	cd learn/results && make eval SUBJECT=paren1
-	cd learn/results && make eval SUBJECT=paren2
-	cd learn/results && make eval SUBJECT=paren3
-	cd learn/results && make eval SUBJECT=paren4
-	cd learn/results && make eval SUBJECT=paren5
-	cd learn/results && make eval SUBJECT=paren1a
-	cd learn/results && make eval SUBJECT=paren2a
-	cd learn/results && make eval SUBJECT=paren3a
+	cd learn/glade-py/src && python3 glade.py bin_any_paren
+	cd learn/glade-py/src && python3 glade.py bin_paren
+	cd learn/glade-py/src && python3 glade.py bool_add
+	cd learn/glade-py/src && python3 glade.py palindromes
+	cd learn/glade-py/src && python3 glade.py paren
+	cd learn/glade-py/src && python3 glade.py two_any_paren_d
+	cd learn/glade-py/src && python3 glade.py two_paren
+	cd learn/glade-py/src && python3 glade.py two_paren_d
 	cd learn/results && make eval-antlr-precision SUBJECT=lua
 	cd learn/results && make eval-antlr-precision SUBJECT=pascal
 	cd learn/results && make eval-antlr-precision SUBJECT=mysql
