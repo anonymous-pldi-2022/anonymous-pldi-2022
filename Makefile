@@ -36,14 +36,14 @@ eval:
 	cd learn/results && make eval SUBJECT=decimals
 	cd learn/results && make eval SUBJECT=floats
 	cd learn/results && make eval SUBJECT=json
-	cd learn/glade-py/src && python3 glade.py bin_any_paren
-	cd learn/glade-py/src && python3 glade.py bin_paren
-	cd learn/glade-py/src && python3 glade.py bool_add
-	cd learn/glade-py/src && python3 glade.py palindromes
-	cd learn/glade-py/src && python3 glade.py paren
-	cd learn/glade-py/src && python3 glade.py two_any_paren_d
-	cd learn/glade-py/src && python3 glade.py two_paren
-	cd learn/glade-py/src && python3 glade.py two_paren_d
+	cd learn/results && make eval SUBJECT=bin_any_paren
+	cd learn/results && make eval SUBJECT=bin_paren
+	cd learn/results && make eval SUBJECT=bool_add
+	cd learn/results && make eval SUBJECT=palindromes
+	cd learn/results && make eval SUBJECT=paren
+	cd learn/results && make eval SUBJECT=two_any_paren_d
+	cd learn/results && make eval SUBJECT=two_paren
+	cd learn/results && make eval SUBJECT=two_paren_d
 	cd learn/results && make eval-antlr-precision SUBJECT=lua
 	cd learn/results && make eval-antlr-precision SUBJECT=pascal
 	cd learn/results && make eval-antlr-precision SUBJECT=mysql
