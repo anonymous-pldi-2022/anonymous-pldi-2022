@@ -794,9 +794,6 @@ def main(program):
 
     cfg, start = phase_2(regex)
 
-    with open('../../synthesized/%s_.json' % program, 'w+') as f:
-        json.dump({'<start>': [[start]], **cfg}, indent=4, fp=f)
-
     print('\n+++++ Merging Phase Begins +++++\n')
     merged = phase_3(cfg, start)
 
