@@ -18,7 +18,11 @@ In this experiment, we learn 25 target languages. Target languages are modeled b
 * antlr4-python3-runtime version 4.9.2, can be installed by `pip3 install antlr4-python3-runtime==4.9.2`
 
 ## Learning
-To run the learning tasks, run commands:
+To generate input seeds for a program subject, we use the `learn/glade-py/src/fuzz.py` script. For example, the following command generates seed inputs for Decimals:
+
+    cd learn/glade-py/src && python3 glade.py decimals
+
+To run all learning tasks, run command:
 
     make learn
 

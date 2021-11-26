@@ -174,18 +174,17 @@ def main(fn):
     #for i in range(total):
     seen = set()
     i = 0
+    j = 0
     while True:
         if i == total: break
 
         val = fuzzer.fuzz(mgrammar['<start>'][0][0])
         if len(val) > 200 or len(val) == 0: continue
-
+        i += 1 
         if val in seen: continue
         seen.add(val)
-        print("val: "+ val)
-        i += 1
+        print("val: "+ val)       
         b.write(repr(val) + "\n")
-
         v = check.check(val, fn)
         if v:
             correct += 1
