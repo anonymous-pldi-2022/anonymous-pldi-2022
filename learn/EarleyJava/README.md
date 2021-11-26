@@ -6,11 +6,13 @@ You might first need to install maven:
 
     sudo apt install maven
 
-Install JDK 11. For that you can read this [blog](https://linuxhint.com/install_oracle_jdk11_ubuntu/).
+Install JDK 11. Run:
+
+    sudo apt-get install openjdk-11-jdk
 
 To compile EarleyJava, run: 
 
-    make all
+    make compile
 
 To run EarleyJava, execute:
 

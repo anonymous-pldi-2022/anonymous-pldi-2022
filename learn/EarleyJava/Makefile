@@ -4,11 +4,12 @@ all: compile
 compile:
 	cd EarleyParser; mvn clean compile
 
+# myfile.json is the input file that we want to parse
 myfile=EarleyParser/myfile.json
-#grammar=EarleyParser/jsongrammar_ascii.json
+
+# grep-java.json is the grammar, used by EarleyJava to parse the input file
 grammar=EarleyParser/grep-java.json
-#grammar=EarleyParser/grammar.json
-#grammar=EarleyParser/expr.json
+
 debug=-m pudb
 pythonparser:
 	python3 src/Parser.py $(grammar) $(myfile)

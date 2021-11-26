@@ -13,6 +13,8 @@ In this experiment, we learn 25 target languages. Target languages are modeled b
 * CPU of 8 cores minimum.
 * python3
 * pip3
+* maven
+* openjdk-11-jdk
 * antlr4-python3-runtime version 4.9.2, can be installed by `pip3 install antlr4-python3-runtime==4.9.2`
 
 ## Learning
@@ -21,6 +23,10 @@ To run the learning tasks, run commands:
     make learn
 
 ## Evaluation
+Before running the evaluation, we compile the EarleyJava project:
+
+    make earleyjava
+
 To run the evaluation, execute command:
 
     make eval
