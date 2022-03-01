@@ -39,17 +39,17 @@ To run the evaluation for all subjects, execute command:
 
     $ make eval
 
-## Learning a specific subject
+## Learning a specific grammar
 You can also learn one specific grammar e.g. ints. The grammar must be in fuzzingbook format and must be located in `learn/handwritten`
 
 To learn the `ints` grammar, execute:
 
     $ cd learn/glade-py/src && python3 glade.py ints
 
-## Learning a new subject
+## Learning a new grammar
 To test a new grammar `mygrammar`, first place your grammar file in `learn/handwritten`. The grammar must be stored in fuzzingbook format.
 
-Next, generate the seed inputs by running the following command:
+Next, generate seed inputs by running the following command:
 
     $ cd learn/glade-py/src && python3 fuzz.py mygrammar
 
@@ -60,8 +60,8 @@ Then execute the learning algorithm:
     $ cd learn/glade-py/src && python3 glade.py mygrammar
 
 
-## Evaluating a specific subject
-After learning a given grammar, you can run the evaluation to obtain the precision and recall scores. For example to evaluate `xml` learned grammar, we run:
+## Evaluating a specific grammar
+After learning a given grammar, you can run the evaluation to obtain the precision and recall scores. For example, to evaluate `xml` learned grammar, we run:
 
     $ cd learn/results && make eval SUBJECT=xml
 
@@ -78,10 +78,10 @@ ANTLR source grammars can be found in `antlr4/*/` where * can be relpaced by the
 
 Synthesized grammars can be found under `learn/synthesized`.
 
-The files containing the precision scores are: `learn/results/eval_*_precision.txt`.
+The files containing precision scores are: `learn/results/eval_*_precision.txt`.
 
-The files containing the recall scores are: `learn/results/eval_*_recall.txt`. Please note that the total recall score for a given subject can be obtained by summing up the 10 subscores in the file.
+The files containing recall scores are: `learn/results/eval_*_recall.txt`. Please note that the total recall score for a given subject can be obtained by summing up the 10 subscores in the file.
 
 The files containing execution statistics are: `learn/results/info_*.txt`.
 
-Statistics on the synthesized grammars are stored as `learn/results/eval_*_grammar.txt`.
+Statistics on the synthesized grammars are stored in `learn/results/eval_*_grammar.txt`.
