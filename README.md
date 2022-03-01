@@ -7,7 +7,7 @@ Grammars](https://arxiv.org/pdf/1608.01723.pdf)
 The main source file where _Glade_ algorithm is implemented is [glade.py](https://github.com/anonymous-pldi-2022/anonymous-pldi-2022/blob/main/learn/glade-py/src/glade.py)
 You can also reproduce the experiments by running our [virtual machine](https://figshare.com/s/136eea0d984136abc300)
 
-In this experiment, we learn 25 target languages. Target languages are modeled by source grammars. Most grammars are in the fuzzingbook format. The rest are in ANTLR format.
+In this experiment, we learn 25 target languages. Target languages are modeled by source grammars. Most grammars are in [fuzzingbook format](https://www.fuzzingbook.org/html/Grammars.html). The rest are in ANTLR format.
 
 ## Requirements:
 * CPU of 8 cores minimum.
@@ -19,14 +19,14 @@ In this experiment, we learn 25 target languages. Target languages are modeled b
 
 ## Running all experiments
 
-# Learning
+### Learning
 To run all learning tasks, run command:
 
     $ make learn
 
 This will learn all the 24 grammars.
 
-# Evaluation
+### Evaluation
 Before running the evaluation, we compile the EarleyJava project:
 
     $ make earleyjava
@@ -40,20 +40,20 @@ To run the evaluation for all subjects, execute command:
     $ make eval
 
 ## Learning a specific subject
-You can also learn one specific grammar e.g. ints. The grammar must be in the fuzzingbook format and must be located in `learn/handwritten`
+You can also learn one specific grammar e.g. ints. The grammar must be in fuzzingbook format and must be located in `learn/handwritten`
 
-To learn the Decimals grammar, execute 
+To learn the Decimals grammar, execute:
 
     $ cd learn/glade-py/src && python3 glade.py ints
 
 ## Learning a new subject
-To test a new grammar `mygrammar`, first place your grammar file in `learn/handwritten`. The grammar must be stored in the fuzzinbook format.
+To test a new grammar `mygrammar`, first place your grammar file in `learn/handwritten`. The grammar must be stored in fuzzingbook format.
 
 Next, generate the seed inputs by running the following command:
 
     $ cd learn/glade-py/src && python3 fuzz.py mygrammar
 
-This will generate 50 random seed input and save them in a text file `learn/seeds/mygrammar_inputs.txt`
+This will generate 50 random seed input and save them in a text file `learn/seeds/mygrammar_inputs.txt`. Redundant seed inputs are automatically removed.
 
 Then execute the learning algorithm:
 
