@@ -1,5 +1,5 @@
 
-This is the replication package of PyGlade experiments.
+This is the replication package for "“Synthesizing Input Grammars”: A Critical Evaluation". 
 PyGlade is a Python implementation of the _Glade_ blackbox grammar synthesis algorithm described by
 Bastani et al. in [Synthesizing Program Input
 Grammars](https://arxiv.org/pdf/1608.01723.pdf).
