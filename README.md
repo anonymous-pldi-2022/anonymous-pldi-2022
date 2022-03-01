@@ -5,7 +5,7 @@ Bastani et al. in [Synthesizing Program Input
 Grammars](https://arxiv.org/pdf/1608.01723.pdf).
 
 The main source file where _Glade_ algorithm is implemented is [glade.py](https://github.com/anonymous-pldi-2022/anonymous-pldi-2022/blob/main/learn/glade-py/src/glade.py).
-You can also reproduce the experiments by running our [virtual machine](https://figshare.com/s/136eea0d984136abc300).
+You can reproduce the experiments by running our [virtual machine](https://figshare.com/s/136eea0d984136abc300).
 
 In this experiment, we learn 25 target languages. Target languages are modeled by source grammars. Most grammars are in [fuzzingbook format](https://www.fuzzingbook.org/html/Grammars.html). The rest are in ANTLR format.
 
@@ -16,6 +16,8 @@ In this experiment, we learn 25 target languages. Target languages are modeled b
 * maven
 * openjdk-11-jdk
 * antlr4-python3-runtime version 4.9.2, can be installed by `pip3 install antlr4-python3-runtime==4.9.2`
+
+Alternatively, you can just simply use our virtual machine, which has all the above requirements.
 
 ## Running all experiments
 
