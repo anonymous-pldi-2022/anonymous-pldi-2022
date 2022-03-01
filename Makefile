@@ -27,6 +27,31 @@ learn:
 earleyjava:
 	cd learn/EarleyJava && make compile
 
+analyze:
+	python3 analyze-grammar.py url
+	python3 analyze-grammar.py lisp
+	python3 analyze-grammar.py xml
+	python3 analyze-grammar.py \grep
+	python3 analyze-grammar.py ints
+	python3 analyze-grammar.py decimals
+	python3 analyze-grammar.py floats
+	python3 analyze-grammar.py bin_any_paren
+	python3 analyze-grammar.py bin_paren
+	python3 analyze-grammar.py bool_add
+	python3 analyze-grammar.py palindromes
+	python3 analyze-grammar.py paren
+	python3 analyze-grammar.py two_any_paren_d
+	python3 analyze-grammar.py two_paren
+	python3 analyze-grammar.py two_paren_d
+	python3 analyze-grammar.py lua
+	python3 analyze-grammar.py pascal
+	python3 analyze-grammar.py mysql
+	python3 analyze-grammar.py xpath
+	python3 analyze-grammar.py c
+	python3 analyze-grammar.py tinyc
+	python3 analyze-grammar.py tiny
+	python3 analyze-grammar.py basic
+
 eval:
 	cd learn/results && make eval SUBJECT=url
 	cd learn/results && make eval SUBJECT=lisp

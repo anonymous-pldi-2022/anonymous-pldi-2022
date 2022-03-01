@@ -20,7 +20,7 @@ In this experiment, we learn 25 target languages. Target languages are modeled b
 ## Learning
 To generate input seeds for a program subject, we use the `learn/glade-py/src/fuzz.py` script. For example, the following command generates seed inputs for Decimals:
 
-    cd learn/glade-py/src && python3 glade.py decimals
+    cd learn/glade-py/src && python3 fuzz.py decimals
 
 To run all learning tasks, run command:
 
