@@ -17,32 +17,71 @@ In this experiment, we learn 25 target languages. Target languages are modeled b
 * openjdk-11-jdk
 * antlr4-python3-runtime version 4.9.2, can be installed by `pip3 install antlr4-python3-runtime==4.9.2`
 
-## Learning
-To generate input seeds for a program subject, we use the `learn/glade-py/src/fuzz.py` script. For example, the following command generates seed inputs for Decimals:
+## Running all experiments
 
-    cd learn/glade-py/src && python3 fuzz.py decimals
-
+# Learning
 To run all learning tasks, run command:
 
-    make learn
+    $ make learn
 
-## Evaluation
+This will learn all the 24 grammars.
+
+# Evaluation
 Before running the evaluation, we compile the EarleyJava project:
 
-    make earleyjava
+    $ make earleyjava
 
-To run the evaluation, execute command:
+To collect grammar statistics for all subjects, run:
 
-    make eval
+    $ make analyze
 
+To run the evaluation for all subjects, execute command:
+
+    $ make eval
+
+## Learning a specific subject
+You can also learn one specific grammar e.g. ints. The grammar must be in the fuzzingbook format and must be located in `learn/handwritten`
+
+To learn the Decimals grammar, execute 
+
+    $ cd learn/glade-py/src && python3 glade.py ints
+
+## Learning a new subject
+To test a new grammar `mygrammar`, first place your grammar file in `learn/handwritten`. The grammar must be stored in the fuzzinbook format.
+
+Next, generate the seed inputs by running the following command:
+
+    $ cd learn/glade-py/src && python3 fuzz.py mygrammar
+
+This will generate 50 random seed input and save them in a text file `learn/seeds/mygrammar_inputs.txt`
+
+Then execute the learning algorithm:
+
+    $ cd learn/glade-py/src && python3 glade.py mygrammar
+
+
+## Evaluating a specific subject
+After learning a given grammar, you can run the evaluation to obtain the precision and recall scores. For example to evaluate the xml learned grammar, we run:
+
+    $ cd learn/results && make eval SUBJECT=xml
+
+You can substitute `xml` with the name of the grammar you want to evaluate.
+
+To collect statistics of the learned grammar, i.e., number of non-terminals, rules, and terminals, run:
+
+    $ python3 analyze-grammar.py xml
+
+## Evaluation results
 Source grammars can be found in `learn/handwritten`
 
 ANTLR source grammars can be found in `antlr4/*/` where * can be relpaced by the target language name.
 
-Synthesized grammars can be found in `learn/synthesized`.
+Synthesized grammars can be found under `learn/synthesized`.
 
-The files containing evaluation results are: `learn/results/eval_*.txt`.
+The files containing the precision scores are: `learn/results/eval_*_precision.txt`.
+
+The files containing the recall scores are: `learn/results/eval_*_recall.txt`. Please note that the total recall score for a given subject can be obtained by summing up the 10 subscores in the file.
 
 The files containing execution statistics are: `learn/results/info_*.txt`.
 
-
+Statistics on the synthesized grammars are stored as `learn/results/eval_*_grammar.txt`.
