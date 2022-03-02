@@ -748,9 +748,10 @@ def phase_3(cfg, start):
     return cfg
 
 import glob
+import statistics
 def read_seeds(program):
     inputs = []
-    seeds_length = 0
+    lengths = []
     antlr_programs = ['xpath', 'lua', 'pascal', 'mysql', 'c', 'tinyc', 'tiny', 'basic']
 
     if program in antlr_programs:
@@ -759,7 +760,7 @@ def read_seeds(program):
         for name in files:
             fin = open(name, "rt")
             string = fin.read()
-            seeds_length = seeds_length + len(string)
+            lengths.append(len(string))
             inputs.append(string)
 
     else:
@@ -768,10 +769,12 @@ def read_seeds(program):
         file1.close()
         for input in Lines:
             string = eval(input.strip())
-            seeds_length = seeds_length + len(string)
+            lengths.append(len(string))
             inputs.append(string)
 
-    return inputs, seeds_length
+    mean = statistics.mean(lengths)
+    st_dev = statistics.pstdev(lengths)
+    return inputs, mean, st_dev
 
 def main(program):
     global PROGRAM
@@ -779,7 +782,7 @@ def main(program):
     start_time = time.time()
     regexes = []
 
-    inputs, seeds_length = read_seeds(program)
+    inputs, mean, st_dev = read_seeds(program)
 
     if len(inputs) == 0:
         print("inputs file is empty! Please provide inputs.")
@@ -805,10 +808,11 @@ def main(program):
     end_time = time.time()
     elapsed = end_time - start_time
     print("Elapsed time: " + str(elapsed))
+    info_title = "\n ++++++++ Execution stats for " + program + " ++++++++ "
     time_info = "Time taken to learn " + program + " is: " + str(elapsed)
-    seeds_info = "Total length of seeds: " + str(seeds_length)
+    seeds_info = "Average length of seeds: " + str(mean) + " ± " + str(st_dev) 
     checks_info = "Total number of checks: " + str(CHECKS)
-    all_info = time_info + "\n" + seeds_info + "\n" + checks_info + "\n"
+    all_info = info_title + "\n" + time_info + "\n" + seeds_info + "\n" + checks_info + "\n"
     file2 = open('../../results/info_%s.txt' % program, 'w')
     file2.write(all_info)
     file2.close()

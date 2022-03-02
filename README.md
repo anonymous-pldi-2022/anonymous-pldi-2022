@@ -24,7 +24,7 @@ Alternatively, you can just simply use our virtual machine, which has all the ab
 ### Learning
 To run all learning tasks, run command:
 
-    $ make learn
+    $ make -B learn
 
 This will learn all the 24 grammars.
 
